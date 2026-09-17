@@ -25,6 +25,7 @@ namespace Arreglos.Logica
         public bool EstaVacio => _tope == 0;
 
         //metodos
+        //Llenar
         public void Llenar(int minimo, int maximo) { 
         
             Random random = new Random();
@@ -35,17 +36,48 @@ namespace Arreglos.Logica
             _tope = N;
 
         }
+        //Metodo Ordenar
+        public void Ordenar()
+        {
+            for (int i = 0; i < _tope; i++)
+            {
+              for(int j =i+1; j < _tope; j++)
+                {
+                    if (_arreglo[i] > _arreglo[j])
+                    {
+                        Cambiar(ref _arreglo[i], ref _arreglo[j]);
+                    }
+                }
+            }
+        }
 
+        //Metodo Cambiar
+
+        public void Cambiar(ref int a, ref int b)
+        {
+            int auxiliar = a;
+            a=b;
+            b=auxiliar;
+        }
+
+        //Metodo toString
         public override string ToString() 
         {
             if (  EstaVacio)
             {
                 Console.WriteLine("El arreglo esta vacio");
             }
+            int contador=0;
             string salida = string.Empty;
-            for(int i = 0; i < N; i++)
+            for(int i = 0; i < _tope; i++)
             {
                 salida += $"{_arreglo[i]}\t";
+
+                if (contador > 9)
+                {
+                    contador = 0;   
+                    salida += "\n"; 
+                }
             }
 
             return salida;
