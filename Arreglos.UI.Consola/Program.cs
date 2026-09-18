@@ -5,9 +5,9 @@ Console.WriteLine("Areglo");
 
 
 
-MiArreglo oMiArreglo = new MiArreglo(1000);
+MiArreglo oMiArreglo = new MiArreglo(100);
 
-oMiArreglo.Llenar(1, 1000);
+oMiArreglo.Llenar(1, 100);
 
 Console.WriteLine("Arreglo de sordenado:");
 Console.WriteLine(oMiArreglo); // llama automáticamente a ToString()
