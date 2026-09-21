@@ -39,6 +39,11 @@ namespace Arreglos.Logica
         //Metodo Ordenar
         public void Ordenar()
         {
+            Ordenar(true);
+                
+        }
+        public void Ordenar(bool asendente)
+        {
             for (int i = 0; i < _tope; i++)
             {
               for(int j =i+1; j < _tope; j++)
@@ -46,8 +51,9 @@ namespace Arreglos.Logica
                     if (asendente)
                     {
                         if (_arreglo[i] < _arreglo[j])
-                    {
-                        Cambiar(ref _arreglo[i], ref _arreglo[j]);
+                        {
+                            Cambiar(ref _arreglo[i], ref _arreglo[j]);
+                        }
                     }
                 }
             }
@@ -61,6 +67,20 @@ namespace Arreglos.Logica
             a=b;
             b=auxiliar;
         }
+
+        // metodo push o agregar 
+        public void Agregar(int numero)
+        {
+            if (EstaLleno)
+            {
+                throw new InvalidOperationException("El arreglo esta lleno");
+            }
+            _arreglo[_tope] = numero;
+            _tope++;
+        }
+
+
+
 
         //Metodo toString
         public override string ToString() 
