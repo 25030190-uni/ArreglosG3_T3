@@ -43,7 +43,9 @@ namespace Arreglos.Logica
             {
               for(int j =i+1; j < _tope; j++)
                 {
-                    if (_arreglo[i] > _arreglo[j])
+                    if (asendente)
+                    {
+                        if (_arreglo[i] < _arreglo[j])
                     {
                         Cambiar(ref _arreglo[i], ref _arreglo[j]);
                     }
