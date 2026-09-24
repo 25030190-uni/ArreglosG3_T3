@@ -32,16 +32,17 @@ Console.WriteLine(oMiArreglo);
 
 
 
-//oMiArreglo.Llenar(1, 100);
+oMiArreglo.Llenar();
 
-//Console.WriteLine("Arreglo desordenado:");
-//Console.WriteLine(oMiArreglo); // llama automáticamente a ToString()
+Console.WriteLine("Arreglo desordenado:");
+Console.WriteLine(oMiArreglo); // llama automáticamente a ToString()
 
-//Console.WriteLine("\n Arreglo ordenado de forma asendente");
-//oMiArreglo.Ordenar();
-//Console.WriteLine(oMiArreglo);
+Console.WriteLine("\n Arreglo ordenado de forma asendente");
+oMiArreglo.Ordenar();
+Console.WriteLine(oMiArreglo);
 
-//Console.WriteLine("\n Arreglo ordenado de forma desendente");
-//oMiArreglo.Ordenar(false);
+Console.WriteLine("\n Arreglo ordenado de forma desendente");
+oMiArreglo.Ordenar(false);
+Console.WriteLine(oMiArreglo);
 
 Console.ReadKey();

@@ -25,6 +25,11 @@ namespace Arreglos.Logica
         public bool EstaVacio => _tope == 0;
 
         //metodos
+        public void Llenar()
+        {
+            Llenar(1, 100);
+        }
+
         //Llenar
         public void Llenar(int minimo, int maximo) {
 
