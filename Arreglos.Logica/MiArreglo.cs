@@ -15,7 +15,7 @@ namespace Arreglos.Logica
         public MiArreglo(int n)
         {
             N = n;
-            _arreglo=new int[n];
+            _arreglo = new int[n];
             _tope = 0;
         }
         //propiedades 
@@ -26,12 +26,12 @@ namespace Arreglos.Logica
 
         //metodos
         //Llenar
-        public void Llenar(int minimo, int maximo) { 
-        
+        public void Llenar(int minimo, int maximo) {
+
             Random random = new Random();
-            for(int i =0;i<N;i++)
+            for (int i = 0; i < N; i++)
             {
-                _arreglo[i]=random.Next(minimo, maximo);
+                _arreglo[i] = random.Next(minimo, maximo);
             }
             _tope = N;
 
@@ -40,13 +40,13 @@ namespace Arreglos.Logica
         public void Ordenar()
         {
             Ordenar(true);
-                
+
         }
         public void Ordenar(bool asendente)
         {
             for (int i = 0; i < _tope; i++)
             {
-              for(int j =i+1; j < _tope; j++)
+                for (int j = i + 1; j < _tope; j++)
                 {
                     if (asendente)
                     {
@@ -64,8 +64,8 @@ namespace Arreglos.Logica
         public void Cambiar(ref int a, ref int b)
         {
             int auxiliar = a;
-            a=b;
-            b=auxiliar;
+            a = b;
+            b = auxiliar;
         }
 
         // metodo push o agregar 
@@ -79,8 +79,51 @@ namespace Arreglos.Logica
             _tope++;
         }
 
+        //metodo mostrar 
 
+        public void insertar(int numero, int posicion)
+        {
+            if (EstaLleno)
+            {
+                throw new Exception("El arreglo esta lleno");
+            }
+           if(posicion<0)
+            {
+                posicion = 0;
+            }
+           if (posicion > _tope)
+            {
+                posicion = _tope;
+            }
+            for (int i = _tope; i > posicion; i--)
+            {
+                _arreglo[i] = _arreglo[i - 1];
+            }
+            _arreglo[posicion] = numero;
+            _tope++;
+        }
 
+        //metodo eliminar
+        public void Eliminar(int posicion)
+        {
+            if (EstaVacio)
+            {
+                throw new Exception("el arreglo esta vacio");
+            }
+            if (posicion < 0)
+            {
+                posicion = 0;
+            }
+            if (posicion > _tope)
+            {
+                posicion = _tope;
+            }
+            for(int i = posicion; i < _tope - 1; i++)
+            {
+                _arreglo[i] = _arreglo[i + 1];
+            }
+            _tope--;
+        }
 
         //Metodo toString
         public override string ToString() 
